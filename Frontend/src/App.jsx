@@ -10,7 +10,8 @@ const App = () => {
   const [edit, setEdit] = useState(null)
 
   async function fetchNoteData() {
-    await axios.get('http://localhost:3000/api/notes')
+    // await axios.get('http://localhost:3000/api/notes')
+    await axios.get('https://cohort2-0-z6mv.onrender.com/api/notes')
       .then(res=>{
         setNotes(res.data.notes)
       })
@@ -22,7 +23,12 @@ const App = () => {
     console.log(description)
     console.log(price)
 
-    await axios.post('http://localhost:3000/api/notes', {
+    // await axios.post('http://localhost:3000/api/notes', {
+    //   title:name,
+    //   description: description,
+    //   price: price
+    // })
+    await axios.post('https://cohort2-0-z6mv.onrender.com/api/notes', {
       title:name,
       description: description,
       price: price
@@ -37,14 +43,19 @@ const App = () => {
 
   async function deleteNotes(id) {
 
-    await axios.delete('http://localhost:3000/api/notes/'+id)
+    // await axios.delete('http://localhost:3000/api/notes/'+id)
+    await axios.delete('https://cohort2-0-z6mv.onrender.com/api/notes/'+id)
     fetchNoteData()
 
   }
 
   async function updateNotes(id) {
 
-    await axios.patch('http://localhost:3000/api/notes/'+id, {
+    // await axios.patch('http://localhost:3000/api/notes/'+id, {
+    //   description: description,
+    //   price: price
+    // })
+    await axios.patch('https://cohort2-0-z6mv.onrender.com/api/notes/'+id, {
       description: description,
       price: price
     })
